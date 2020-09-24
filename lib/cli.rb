@@ -1,9 +1,12 @@
-class CLI
+require 'pry'
+
+class Cli
 
     def call
-        TheOfficeDirectory::CastScraper.new.send_cast
+       CastScraper.new.send_cast
         welcome_message
     end
+    
 
     def welcome_message
         puts "Welcome! This is the Office cast directory!!"
@@ -24,6 +27,7 @@ class CLI
         else
             puts "Sorry invalid input, please try again."
             play
+
         end
     end 
 
@@ -31,17 +35,18 @@ class CLI
         puts "Which cast member would you like to learn about? enter the number:"
         puts ""
         puts "Office cast memebers:"
-        TheOfficeDirectory::Cast.all.each_with_index do |cast, index|
+        Cast.all.each_with_index do |cast, index|
             puts "#{index + 1}. #{cast.name}"
         end
         pick_cast
     end
+    
 
     def pick_cast
         puts "What cast member would you like to learn more about? enter the number:"
 
         input = gets.strip
-        cast = TheOfficeDirectory::Cast.find(input.to_i)
+        cast = Cast.find(input.to_i)
 
         cast_info(cast)
     end
@@ -53,6 +58,8 @@ class CLI
         puts "Born:      #{cast.born}"
         puts "Title:     #{cast.title}"
         puts "Learn more at  #{cast.url}"
+
+        
 
         play
     end

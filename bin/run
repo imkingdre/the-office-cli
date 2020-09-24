@@ -4,9 +4,13 @@
 require 'pry'
 require 'open-uri'
 require 'nokogiri'
+require 'rest-client'
+require 'pry'
+require 'json'
 
-require_relative '../lib/cli'
-require_relative '../lib/cast'
-require_relative '../lib/cast_scraper'
+require '../lib/cli'
+require '../lib/cast'
+require '../lib/cast_scraper'
 
 CLI.new.run
+binding.pry
