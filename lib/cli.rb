@@ -1,21 +1,21 @@
-require 'pry'
-
-class Cli
+class CLI
 
     def call
-       CastScraper.new.send_cast
+        #  binding.pry
+       CastScraper.scrape_cast
+    #    binding.pry
         welcome_message
     end
     
 
     def welcome_message
-        puts "Welcome! This is the Office cast directory!!"
+        puts "Welcome to The Office quotes generator!!"
         
         play
     end
 
     def play
-        puts "if you would like to learn about the office cast enter Y, or if you want to exit, enter exit"
+        puts "if you would like to see some of your favorite office quotes enter Y, or if you want to exit, enter exit"
 
         input = gets.strip
 
@@ -32,37 +32,41 @@ class Cli
     end 
 
     def cast_list
-        puts "Which cast member would you like to learn about? enter the number:"
+        puts "Enter the number to see who said the quote."
         puts ""
-        puts "Office cast memebers:"
-        Cast.all.each_with_index do |cast, index|
-            puts "#{index + 1}. #{cast.name}"
+        puts "The Office quotes:"
+        Cast.all.each_with_index do |quotes, index|
+            puts "#{index + 1}. #{quotes.content}"
         end
+        # input = gets.strip.to_i
+        # pick_cast(input)
         pick_cast
     end
     
 
     def pick_cast
-        puts "What cast member would you like to learn more about? enter the number:"
+        puts "Enter the number to see who said the quote."
 
         input = gets.strip
+        # cast = Cast.find_by_name(quote)
         cast = Cast.find(input.to_i)
-
+        # cast.each do |c|
+        #    puts quote: "#{c.content}"
         cast_info(cast)
+        # binding.pry
+        # cast_list(cast)
     end
 
     def cast_info(cast)
-        puts "------#{cast.name}-----"
-        puts "Gender:    #{cast.gender}"
-        puts "Status:    #{cast.status}"
-        puts "Born:      #{cast.born}"
-        puts "Title:     #{cast.title}"
-        puts "Learn more at  #{cast.url}"
+        puts ""
+        puts "#{cast.content}"
+        puts "#{cast.character}"
+        puts ""
+        # binding.pry
 
-        
-
-        play
     end
+
+    
 
     def exit_message
         puts "Thank you for checking out the office cast members. Goodbye!"

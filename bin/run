@@ -1,16 +1,13 @@
-#!/usr/bin/env bash
+#!/usr/bin/env ruby
 
 
-require 'pry'
-require 'open-uri'
-require 'nokogiri'
-require 'rest-client'
 require 'pry'
 require 'json'
+require 'rest-client'
 
-require '../lib/cli'
-require '../lib/cast'
-require '../lib/cast_scraper'
+require_relative '../lib/cli'
+require_relative '../lib/cast_api'
+require_relative '../lib/cast'
 
-CLI.new.run
-binding.pry
+
+CLI.new.call
