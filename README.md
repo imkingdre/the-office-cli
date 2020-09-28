@@ -1,1 +1,3 @@
-this project gives you some information about the cast in the show The Office
+The Office Quotes generator
+
+to run the cli in the terminal run bin/run to start the cli
