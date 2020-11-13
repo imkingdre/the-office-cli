@@ -8,7 +8,6 @@ class CastScraper
         office_characters=JSON.parse(html.body)
         office_array = office_characters["data"]
         office_array.each do |quote|
-            # binding.pry
             Cast.new(quote)
         end
 

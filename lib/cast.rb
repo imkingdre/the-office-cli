@@ -25,10 +25,6 @@ class Cast
         @@all
     end
 
-    # def self.find_by_name(name)
-    #     self.all.select do |quote|
-    #         quote.content.downcase == name
-    #     end 
     def self.find(index)
         @@all [index -1]
     end

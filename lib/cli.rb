@@ -3,7 +3,7 @@ class CLI
     def call
         #  binding.pry
        CastScraper.scrape_cast
-    #    binding.pry
+    
         welcome_message
     end
     
@@ -38,8 +38,7 @@ class CLI
         Cast.all.each_with_index do |quotes, index|
             puts "#{index + 1}. #{quotes.content}"
         end
-        # input = gets.strip.to_i
-        # pick_cast(input)
+        
         pick_cast
     end
     
@@ -48,13 +47,9 @@ class CLI
         puts "Enter the number to see who said the quote."
 
         input = gets.strip
-        # cast = Cast.find_by_name(quote)
+        
         cast = Cast.find(input.to_i)
-        # cast.each do |c|
-        #    puts quote: "#{c.content}"
         cast_info(cast)
-        # binding.pry
-        # cast_list(cast)
     end
 
     def cast_info(cast)
@@ -62,13 +57,8 @@ class CLI
         puts "#{cast.content}"
         puts "#{cast.character}"
         puts ""
-        # binding.pry
-
-    end
-
-    
-
-    def exit_message
         puts "Thank you for checking out the office cast members. Goodbye!"
+
     end
+
 end
