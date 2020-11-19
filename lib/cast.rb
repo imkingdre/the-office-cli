@@ -1,12 +1,13 @@
 class Cast
-    attr_accessor :content, :character, :firstname, :lastname
+    attr_accessor :content, :character, :firstname, :lastname, :id
     
     @@all = []
 
-    # def initialize(firstname=nil, lastname=nil, id=nil)
+    # def initialize(content=nil, character=nil)
     #     @firstname = firstname
     #     @lastname = lastname
     #     @id = id
+    #     @content = content
     #     @@all << self
     # end
 
