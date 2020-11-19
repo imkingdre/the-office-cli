@@ -1,7 +1,7 @@
 class CastScraper
 
     def self.scrape_cast
-        # binding.pry
+        
 
         html = RestClient.get("https://www.officeapi.dev/api/quotes")
         
