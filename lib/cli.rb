@@ -2,7 +2,7 @@ class CLI
 
     def call
         #  binding.pry
-       CastScraper.scrape_cast
+       CastScraper.scrape_cast # calling my scrape class method on the cast api file
     
         welcome_message
     end
@@ -17,10 +17,10 @@ class CLI
     def play
         puts "if you would like to see some of your favorite office quotes enter Y, or if you want to exit, enter exit"
 
-        input = gets.strip
+        input = gets.strip.downcase
 
         case input
-        when "Y"
+        when "y"
             cast_list
         when "exit"
             exit_message
@@ -55,7 +55,7 @@ class CLI
     def cast_info(cast)
         puts ""
         puts "#{cast.content}"
-        puts "#{cast.character}"
+        puts "#{cast.firstname} #{cast.lastname}"
         puts ""
         puts "Thank you for checking out the office cast members. Goodbye!"
 
